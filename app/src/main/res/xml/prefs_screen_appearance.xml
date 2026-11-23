@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:latin="http://schemas.android.com/apk/res-auto"
+    android:key="screen_appearance"
+    android:title="@string/settings_screen_appearance">
+    <PreferenceScreen
+        android:fragment="com.linguakey.keyboard.latin.settings.ThemeSettingsFragment"
+        android:key="screen_theme"
+        android:title="@string/settings_screen_theme" />
+    <SwitchPreference
+        android:key="pref_material_you_auto_color"
+        android:title="ألوان ديناميكية متكيفة مع خلفية الهاتف"
+        android:summary="ضبط ألوان الكيبورد تلقائياً لتتناسق مع خلفية نظام أندرويد"
+        android:defaultValue="false" />
+    <SwitchPreference
+        android:key="pref_amoled_dark_mode"
+        android:title="الوضع الأسود العميق لشاشات AMOLED"
+        android:summary="استخدام اللون الأسود النقي لخلفية الكيبورد لتوفير البطارية"
+        android:defaultValue="true" />
+    <com.linguakey.keyboard.latin.settings.ColorDialogPreference
+        android:key="pref_keyboard_color"
+        android:title="@string/keyboard_color" />
+    <com.linguakey.keyboard.latin.settings.SeekBarDialogPreference
+        android:key="pref_keyboard_height"
+        android:title="@string/prefs_keyboard_height_settings"
+        latin:minValue="@integer/config_min_keyboar_height"
+        latin:maxValue="@integer/config_max_keyboar_height"
+        latin:stepValue="@integer/config_keyboar_height_step" />
+    <com.linguakey.keyboard.latin.settings.SeekBarDialogPreference
+        android:key="pref_bottom_offset_portrait"
+        android:title="@string/prefs_bottom_offset_portrait_settings"
+        latin:minValue="@integer/config_min_bottom_offset_portrait"
+        latin:maxValue="@integer/config_max_bottom_offset_portrait"
+        latin:stepValue="@integer/config_bottom_offset_step" />
+</PreferenceScreen>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="soundpack_names">
+        <item>صوت iOS الكلاسيكي الناعم</item>
+        <item>صوت iOS العميق (Deep Mechanical)</item>
+    </string-array>
+    <string-array name="soundpack_values">
+        <item>default</item>
+        <item>default_deep</item>
+    </string-array>
+
+    <string-array name="ai_provider_names">
+        <item>محرك Gemini API السحابي (Google - موصى به)</item>
+        <item>محرك Ollama المحلي</item>
+        <item>واجهة مخصصة (OpenAI / DeepSeek / OpenRouter)</item>
+    </string-array>
+    <string-array name="ai_provider_values">
+        <item>gemini</item>
+        <item>ollama</item>
+        <item>custom</item>
+    </string-array>
+
+    <string-array name="linguakey_lang_names">
+        <item>العربية</item>
+        <item>English (الإنجليزية) 🇺🇸</item>
+        <item>Español (الإسبانية) 🇪🇸</item>
+        <item>한국어 (الكورية) 🇰🇷</item>
+        <item>Türkçe (التركية) 🇹🇷</item>
+        <item>Français (الفرنسية) 🇫🇷</item>
+        <item>Deutsch (الألمانية) 🇩🇪</item>
+        <item>Русский (الروسية) 🇷🇺</item>
+        <item>中文 (الصينية) 🇨🇳</item>
+        <item>日本語 (اليابانية) 🇯🇵</item>
+        <item>Italiano (الإيطالية) 🇮🇹</item>
+        <item>Português (البرتغالية) 🇧🇷</item>
+    </string-array>
+    <string-array name="linguakey_lang_codes">
+        <item>ar</item>
+        <item>en</item>
+        <item>es</item>
+        <item>ko</item>
+        <item>tr</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>ru</item>
+        <item>zh</item>
+        <item>ja</item>
+        <item>it</item>
+        <item>pt</item>
+    </string-array>
+
+    <string-array name="linguakey_debounce_names">
+        <item>فوري فائق السرعة (220ms - الافتراضي)</item>
+        <item>سريع جداً (400ms)</item>
+        <item>متوازن (650ms)</item>
+        <item>هادئ للفقرات الطويلة (900ms)</item>
+    </string-array>
+    <string-array name="linguakey_debounce_values">
+        <item>220</item>
+        <item>400</item>
+        <item>650</item>
+        <item>900</item>
+    </string-array>
+
+    <string-array name="ai_temperature_names">
+        <item>دقيق وحرفي تماماً (0.0)</item>
+        <item>مركز ومتوازن للترجمة (0.3)</item>
+        <item>متوازن طبيعي (0.7)</item>
+        <item>إبداعي مرن (1.0)</item>
+        <item>إبداعي حر (1.5)</item>
+    </string-array>
+    <string-array name="ai_temperature_values">
+        <item>0.0</item>
+        <item>0.3</item>
+        <item>0.7</item>
+        <item>1.0</item>
+        <item>1.5</item>
+    </string-array>
+
+    <string-array name="ai_max_tokens_names">
+        <item>قصير وسريع (256 رمز)</item>
+        <item>متوسط (512 رمز)</item>
+        <item>قياسي (1024 رمز)</item>
+        <item>طويل (2048 رمز)</item>
+        <item>موسّع جداً (4096 رمز)</item>
+    </string-array>
+    <string-array name="ai_max_tokens_values">
+        <item>256</item>
+        <item>512</item>
+        <item>1024</item>
+        <item>2048</item>
+        <item>4096</item>
+    </string-array>
+
+    <string-array name="utility_button_names">
+        <item>مفاتيح الكيبورد</item>
+        <item>الحافظة الذكية</item>
+        <item>المساعد الذكي (AI)</item>
+        <item>البحث عن صور GIF</item>
+        <item>لوحة الإيموجي</item>
+        <item>الإعدادات</item>
+        <item>إخفاء</item>
+    </string-array>
+    <string-array name="utility_button_values">
+        <item>keys</item>
+        <item>clipboard</item>
+        <item>ai</item>
+        <item>gif</item>
+        <item>emoji</item>
+        <item>settings</item>
+        <item>none</item>
+    </string-array>
+
+    <string-array name="gif_provider_names">
+        <item>Tenor (الافتراضي)</item>
+        <item>Klipy</item>
+        <item>GIPHY</item>
+    </string-array>
+    <string-array name="gif_provider_values">
+        <item>tenor</item>
+        <item>klipy</item>
+        <item>giphy</item>
+    </string-array>
+
+    <string-array name="translate_mode_names">
+        <item>Gemini AI (ترجمة سياقية ذكية)</item>
+        <item>ترجمة فورية سريعة (Google)</item>
+        <item>بدون إنترنت (حزم ML Kit المحلية)</item>
+    </string-array>
+    <string-array name="translate_mode_values">
+        <item>ai</item>
+        <item>scraping</item>
+        <item>mlkit</item>
+    </string-array>
+
+    <string-array name="translate_ai_provider_names">
+        <item>محرك Gemini السحابي</item>
+        <item>إعداد المساعد الذكي الحالي</item>
+        <item>محرك Ollama المحلي</item>
+        <item>واجهة مخصصة (OpenAI / DeepSeek)</item>
+    </string-array>
+    <string-array name="translate_ai_provider_values">
+        <item>gemini</item>
+        <item>active</item>
+        <item>ollama</item>
+        <item>custom</item>
+    </string-array>
+
+    <string-array name="key_shape_entries">
+        <item>الافتراضي المتناسق</item>
+        <item>دائري</item>
+        <item>مربع منحني (Squircle)</item>
+        <item>سداسي</item>
+        <item>مربع حاد</item>
+        <item>مستطيل بحواف ناعمة</item>
+    </string-array>
+    <string-array name="key_shape_values">
+        <item>default</item>
+        <item>circle</item>
+        <item>squircle</item>
+        <item>hexagon</item>
+        <item>square</item>
+        <item>rounded</item>
+    </string-array>
+
+    <string-array name="key_size_mode_entries">
+        <item>تحجيم متناسق موحّد</item>
+        <item>تخصيص العرض والارتفاع بشكل مستقل</item>
+    </string-array>
+    <string-array name="key_size_mode_values">
+        <item>uniform</item>
+        <item>custom</item>
+    </string-array>
+
+    <string-array name="kbd_bg_style_entries">
+        <item>تمديد لملء الخلفية</item>
+        <item>قص متناسق لملء الخلفية</item>
+    </string-array>
+    <string-array name="kbd_bg_style_values">
+        <item>stretch</item>
+        <item>crop</item>
+    </string-array>
+
+    <string-array name="linguakey_source_clear_timeout_names">
+        <item>ثانية واحدة بعد التوقف (1 ثانية)</item>
+        <item>ثانية ونصف بعد التوقف (1.5 ثانية)</item>
+        <item>ثانيتان بعد التوقف (2 ثانية)</item>
+        <item>3 ثوانٍ بعد التوقف</item>
+        <item>5 ثوانٍ بعد التوقف</item>
+        <item>8 ثوانٍ بعد التوقف</item>
+        <item>عند إرسال الرسالة فقط (الافتراضي)</item>
+    </string-array>
+    <string-array name="linguakey_source_clear_timeout_values">
+        <item>1000</item>
+        <item>1500</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>8000</item>
+        <item>0</item>
+    </string-array>
+</resources>

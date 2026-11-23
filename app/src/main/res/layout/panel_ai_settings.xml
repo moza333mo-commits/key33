@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Material You 3 AI Settings Panel -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ai_settings_panel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="8dp">
+
+    <!-- Material 3 Header Row -->
+    <LinearLayout
+        android:id="@+id/setup_header_bar"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="6dp">
+
+        <ImageView
+            android:id="@+id/setup_back_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_arrow_back"
+            android:padding="5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Back to AI Copilot" />
+
+        <TextView
+            android:id="@+id/settings_panel_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="إعداد محرك الذكاء الاصطناعي"
+            android:textSize="12.5sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
+
+        <TextView
+            android:id="@+id/setup_save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:text="حفظ"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+    <!-- Provider Selection Segmented Control -->
+    <LinearLayout
+        android:id="@+id/setup_prov_container"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
+        android:padding="2dp">
+
+        <TextView
+            android:id="@+id/setup_prov_ollama"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Ollama"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/setup_prov_gemini"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Gemini"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/setup_prov_custom"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="مخصص"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="4dp"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Gemini Key Input Container -->
+            <LinearLayout
+                android:id="@+id/setup_gemini_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="6dp">
+                <TextView
+                    android:id="@+id/setup_gemini_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مفتاح GEMINI API"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.04"
+                    android:layout_marginBottom="3dp"/>
+                <EditText
+                    android:id="@+id/setup_gemini_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:hint="الصق مفتاح Gemini API هنا"
+                    android:textSize="12sp"
+                    android:singleLine="true"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:inputType="textNoSuggestions"
+                    android:cursorVisible="true" />
+            </LinearLayout>
+
+            <!-- Host URL & Model Name (Side-by-Side Compact Row) -->
+            <LinearLayout
+                android:id="@+id/setup_host_model_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+                
+                <LinearLayout
+                    android:id="@+id/setup_host_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="8dp">
+                    <TextView
+                        android:id="@+id/setup_host_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="رابط الخادم"
+                        android:textSize="9.5sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.04"
+                        android:layout_marginBottom="3dp"/>
+                    <EditText
+                        android:id="@+id/setup_host_url"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:hint="http://localhost:11434"
+                        android:textSize="12sp"
+                        android:singleLine="true"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:inputType="textNoSuggestions"
+                        android:cursorVisible="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setup_model_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/setup_model_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="النموذج"
+                        android:textSize="9.5sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.04"
+                        android:layout_marginBottom="3dp"/>
+                    <EditText
+                        android:id="@+id/setup_model_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:hint="qwen2.5-coder"
+                        android:textSize="12sp"
+                        android:singleLine="true"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:inputType="textNoSuggestions"
+                        android:cursorVisible="true" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Custom Headers Input Container -->
+            <LinearLayout
+                android:id="@+id/setup_headers_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="6dp">
+                <TextView
+                    android:id="@+id/setup_headers_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ترويسات HTTP مخصصة (JSON)"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.04"
+                    android:layout_marginBottom="3dp"/>
+                <EditText
+                    android:id="@+id/setup_headers_json"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:hint='{"Authorization":"Bearer token"}'
+                    android:textSize="12sp"
+                    android:singleLine="true"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:inputType="textNoSuggestions"
+                    android:cursorVisible="true" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

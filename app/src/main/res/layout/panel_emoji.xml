@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dedicated Gboard-Style Emoji View Panel Container with Pinned Top & Bottom Return-to-Keyboard Controls -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/emoji_panel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="10dp">
+
+    <!-- Top Header Row: Pinned Return-to-Keyboard (ABC) + Scrollable Categories + Pinned Backspace -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="4dp">
+
+        <!-- Pinned Return to Keyboard Button (Always Visible at Top-Left!) -->
+        <TextView
+            android:id="@+id/emoji_top_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:text="⌨️ ABC"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginEnd="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="الرجوع إلى لوحة المفاتيح" />
+
+        <!-- Emoji Category Strip -->
+        <HorizontalScrollView
+            android:id="@+id/emoji_category_scroll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbars="none">
+            <LinearLayout
+                android:id="@+id/emoji_category_container"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/emoji_cat_sticky"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:text="📌 المفضلة"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/emoji_cat_smileys"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:text="😀 وجوه"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/emoji_cat_people"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:text="👋 إشارات"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/emoji_cat_animals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:text="🐶 طبيعة"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/emoji_cat_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:text="🍕 طعام"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/emoji_cat_activities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:text="⚽ أنشطة"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/emoji_cat_objects"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:text="💡 أشياء"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/emoji_cat_symbols"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:text="❤️ رموز"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Pinned Top Delete Button -->
+        <ImageView
+            android:id="@+id/emoji_top_delete_btn"
+            android:layout_width="40dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="6dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/sym_keyboard_delete"
+            android:padding="5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="حذف" />
+    </LinearLayout>
+
+    <!-- Emoji Grid Container -->
+    <ScrollView
+        android:id="@+id/emoji_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+        <LinearLayout
+            android:id="@+id/emoji_items_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp" />
+    </ScrollView>
+
+    <!-- Gboard-Style Bottom Controls (ABC Return to Keyboard + Backspace) -->
+    <LinearLayout
+        android:id="@+id/emoji_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:id="@+id/emoji_back_to_kbd_btn"
+            android:layout_width="86dp"
+            android:layout_height="34dp"
+            android:text="⌨️ ABC"
+            android:textSize="12.5sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="الرجوع إلى لوحة المفاتيح" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/emoji_delete_btn"
+            android:layout_width="64dp"
+            android:layout_height="34dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/sym_keyboard_delete"
+            android:padding="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="حذف" />
+    </LinearLayout>
+</LinearLayout>

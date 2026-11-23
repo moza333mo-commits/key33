@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dedicated Material You 3 Translation Panel -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/translate_panel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="8dp">
+
+    <!-- Translate Header Row (Languages and Mode selection) -->
+    <LinearLayout
+        android:id="@+id/translate_header_bar"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="6dp">
+
+        <TextView
+            android:id="@+id/translate_source_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:text="تلقائي"
+            android:textSize="11.5sp"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <ImageView
+            android:id="@+id/translate_arrow"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_swap_horiz"
+            android:scaleType="centerInside"
+            android:padding="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Swap languages" />
+
+        <TextView
+            android:id="@+id/translate_target_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:text="الإنجليزية"
+            android:textSize="11.5sp"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- Weight spacer to push mode selector to the right -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/translate_mode_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:text="Google"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+    <!-- Download/Translation Progress Bar -->
+    <TextView
+        android:id="@+id/translate_download_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="11sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:visibility="gone"
+        android:layout_marginBottom="2dp" />
+
+    <ProgressBar
+        android:id="@+id/translate_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:visibility="gone"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Material 3 Translate Input Container -->
+    <LinearLayout
+        android:id="@+id/translate_input_container"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="14dp"
+        android:paddingEnd="8dp"
+        android:layout_marginBottom="8dp">
+
+        <EditText
+            android:id="@+id/translate_input"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="اكتب أو الصق نصاً لترجمته"
+            android:textSize="13.5sp"
+            android:singleLine="true"
+            android:background="@null"
+            android:inputType="textNoSuggestions"
+            android:cursorVisible="true"
+            android:textDirection="anyRtl"
+            android:textAlignment="viewStart" />
+
+        <ImageView
+            android:id="@+id/translate_clear_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_close"
+            android:scaleType="centerInside"
+            android:padding="5dp"
+            android:layout_marginEnd="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"
+            android:contentDescription="Clear input" />
+
+        <TextView
+            android:id="@+id/translate_paste_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:text="لصق"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+    <!-- Material 3 Result Container (Preview & Insert Action) -->
+    <LinearLayout
+        android:id="@+id/translate_result_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:minHeight="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="14dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <TextView
+            android:id="@+id/translate_result_preview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textSize="12.5sp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textDirection="anyRtl"
+            android:textAlignment="viewStart" />
+
+        <TextView
+            android:id="@+id/translate_insert_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:text="إدراج"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

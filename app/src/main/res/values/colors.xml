@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#1F1F1F</color>
+
+    <!-- Color resources for LXX_System theme (Gboard Dark Default) -->
+    <color name="background_lxx_system">#000000</color>
+    <color name="background_secondary_lxx_system">#141517</color>
+    <color name="key_text_color_lxx_system">#F1F3F4</color>
+    <color name="key_functional_text_color_lxx_system">#E8EAED</color>
+    <color name="key_text_inactive_color_lxx_system">#9AA0A6</color>
+    <color name="key_hint_letter_color_lxx_system">#9AA0A6</color>
+    <color name="key_background_normal_lxx_system">#222427</color>
+    <color name="key_background_pressed_lxx_system">#3E434A</color>
+
+    <!-- Color resources for LXX_Light theme (Gboard Light) -->
+    <color name="background_lxx_light">#ECEFF1</color>
+    <color name="background_secondary_lxx_light">#DADCE0</color>
+    <color name="key_text_color_lxx_light">#202124</color>
+    <color name="key_functional_text_color_lxx_light">#3C4043</color>
+    <color name="key_text_inactive_color_lxx_light">#5F6368</color>
+    <color name="key_hint_letter_color_lxx_light">#5F6368</color>
+    <color name="key_background_normal_lxx_light">#FFFFFF</color>
+    <color name="key_background_pressed_lxx_light">#DADCE0</color>
+
+    <!-- Color resources for LXX_Dark theme (Gboard Material Dark) -->
+    <color name="background_lxx_dark">#000000</color>
+    <color name="background_secondary_lxx_dark">#141517</color>
+    <color name="key_text_color_lxx_dark">#F1F3F4</color>
+    <color name="key_functional_text_color_lxx_dark">#E8EAED</color>
+    <color name="key_text_inactive_color_lxx_dark">#9AA0A6</color>
+    <color name="key_hint_letter_color_lxx_dark">#9AA0A6</color>
+    <color name="key_background_normal_lxx_dark">#222427</color>
+    <color name="key_background_pressed_lxx_dark">#3E434A</color>
+
+    <!-- Gboard Key Corner Radius -->
+    <dimen name="button_corner_radius_lxx">8dp</dimen>
+
+    <!-- Gboard Settings & UI Palette -->
+    <color name="settings_bg">#1F1F1F</color>
+    <color name="settings_surface">#28292C</color>
+    <color name="settings_surface_container_lowest">#171717</color>
+    <color name="settings_surface_container_low">#202124</color>
+    <color name="settings_surface_container">#28292C</color>
+    <color name="settings_surface_container_high">#303134</color>
+    <color name="settings_surface_container_highest">#3C4043</color>
+    <color name="settings_card_bg">#28292C</color>
+    <color name="settings_card_stroke">#3C4043</color>
+    <color name="settings_accent">#8AB4F8</color>
+    <color name="settings_accent_container">#174EA6</color>
+    <color name="settings_on_accent_container">#D2E3FC</color>
+    <color name="settings_secondary">#81C995</color>
+    <color name="settings_secondary_container">#137333</color>
+    <color name="settings_text_primary">#E8EAED</color>
+    <color name="settings_text_secondary">#9AA0A6</color>
+    <color name="settings_outline">#5F6368</color>
+    <color name="settings_outline_variant">#3C4043</color>
+    <color name="settings_error">#F28B82</color>
+    <color name="settings_error_container">#8C1D18</color>
+</resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:latin="http://schemas.android.com/apk/res-auto">
+    <switch>
+        <!-- Gboard-style Long-Press Symbols on Arabic Row 2 (When pref_show_special_chars is enabled) -->
+        <case latin:showExtraChars="true">
+            <!-- ش -> @ -->
+            <Key
+                latin:keySpec="&#x0634;"
+                latin:keyHintLabel="\@"
+                latin:additionalMoreKeys="\\@"
+                latin:moreKeys="&#x069C;" />
+            <!-- س -> # -->
+            <Key
+                latin:keySpec="&#x0633;"
+                latin:keyHintLabel="#"
+                latin:additionalMoreKeys="#" />
+            <!-- ي -> ؛ -->
+            <Key
+                latin:keySpec="&#x064A;"
+                latin:keyHintLabel="&#x061B;"
+                latin:additionalMoreKeys="&#x061B;,;"
+                latin:moreKeys="&#x0626;,&#x0649;" />
+            <!-- ب -> % -->
+            <Key
+                latin:keySpec="&#x0628;"
+                latin:keyHintLabel="%"
+                latin:additionalMoreKeys="%"
+                latin:moreKeys="&#x067E;" />
+            <!-- ل -> & -->
+            <Key
+                latin:keySpec="&#x0644;"
+                latin:keyHintLabel="&amp;"
+                latin:additionalMoreKeys="&amp;"
+                latin:moreKeys="&#xFEFB;|&#x0644;&#x0627;,&#xFEF7;|&#x0644;&#x0623;,&#xFEF9;|&#x0644;&#x0625;,&#xFEF5;|&#x0644;&#x0622;" />
+            <!-- ا -> - -->
+            <Key
+                latin:keySpec="&#x0627;"
+                latin:keyHintLabel="-"
+                latin:additionalMoreKeys="-"
+                latin:moreKeys="!fixedColumnOrder!5,&#x0622;,&#x0621;,&#x0623;,&#x0625;,&#x0671;" />
+            <!-- ت -> + -->
+            <Key
+                latin:keySpec="&#x062A;"
+                latin:keyHintLabel="+"
+                latin:additionalMoreKeys="+" />
+            <!-- ن -> ( -->
+            <Key
+                latin:keySpec="&#x0646;"
+                latin:keyHintLabel="("
+                latin:additionalMoreKeys="(" />
+            <!-- م -> ، (فاصلة عند الضغط المطوّل على حرف م مثل كيبورد جوجل!) -->
+            <Key
+                latin:keySpec="&#x0645;"
+                latin:keyHintLabel="&#x060C;"
+                latin:additionalMoreKeys="&#x060C;,\\," />
+            <!-- ك -> ) -->
+            <Key
+                latin:keySpec="&#x0643;"
+                latin:keyHintLabel=")"
+                latin:additionalMoreKeys=")"
+                latin:moreKeys="&#x06AF;,&#x06A9;" />
+            <!-- ط -> " -->
+            <Key
+                latin:keySpec="&#x0637;"
+                latin:keyHintLabel="&quot;"
+                latin:additionalMoreKeys="&quot;" />
+        </case>
+        <default>
+            <Key
+                latin:keySpec="&#x0634;"
+                latin:moreKeys="&#x069C;" />
+            <Key latin:keySpec="&#x0633;" />
+            <Key
+                latin:keySpec="&#x064A;"
+                latin:moreKeys="&#x0626;,&#x0649;" />
+            <Key
+                latin:keySpec="&#x0628;"
+                latin:moreKeys="&#x067E;" />
+            <Key
+                latin:keySpec="&#x0644;"
+                latin:moreKeys="&#xFEFB;|&#x0644;&#x0627;,&#xFEF7;|&#x0644;&#x0623;,&#xFEF9;|&#x0644;&#x0625;,&#xFEF5;|&#x0644;&#x0622;" />
+            <Key
+                latin:keySpec="&#x0627;"
+                latin:moreKeys="!fixedColumnOrder!5,&#x0622;,&#x0621;,&#x0623;,&#x0625;,&#x0671;" />
+            <Key latin:keySpec="&#x062A;" />
+            <Key latin:keySpec="&#x0646;" />
+            <Key latin:keySpec="&#x0645;" latin:moreKeys="&#x060C;,\," />
+            <Key
+                latin:keySpec="&#x0643;"
+                latin:moreKeys="&#x06AF;,&#x06A9;" />
+            <Key latin:keySpec="&#x0637;" />
+        </default>
+    </switch>
+</merge>

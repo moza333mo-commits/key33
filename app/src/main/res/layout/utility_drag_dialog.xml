@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2026 Iris Keyboard Project
+*/
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="إظهار وإخفاء أزرار الأدوات"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/settings_accent"
+            android:letterSpacing="0.06"
+            android:layout_marginBottom="12dp" />
+
+        <Switch
+            android:id="@+id/switch_keys"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:text="مفاتيح الكيبورد"
+            android:textSize="15sp"
+            android:textColor="@color/settings_text_primary"
+            android:layout_marginBottom="6dp" />
+
+        <Switch
+            android:id="@+id/switch_clipboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:text="إدارة الحافظة الذكية"
+            android:textSize="15sp"
+            android:textColor="@color/settings_text_primary"
+            android:layout_marginBottom="6dp" />
+
+        <Switch
+            android:id="@+id/switch_ai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:text="المساعد الذكي (AI)"
+            android:textSize="15sp"
+            android:textColor="@color/settings_text_primary"
+            android:layout_marginBottom="6dp" />
+
+        <Switch
+            android:id="@+id/switch_translate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:text="لوحة الترجمة"
+            android:textSize="15sp"
+            android:textColor="@color/settings_text_primary"
+            android:layout_marginBottom="6dp" />
+
+        <Switch
+            android:id="@+id/switch_gif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:text="البحث عن صور GIF"
+            android:textSize="15sp"
+            android:textColor="@color/settings_text_primary"
+            android:layout_marginBottom="6dp" />
+
+        <Switch
+            android:id="@+id/switch_emoji"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:text="شريط الإيموجي"
+            android:textSize="15sp"
+            android:textColor="@color/settings_text_primary"
+            android:layout_marginBottom="6dp" />
+
+        <Switch
+            android:id="@+id/switch_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:text="زر الإعدادات"
+            android:textSize="15sp"
+            android:textColor="@color/settings_text_primary"
+            android:layout_marginBottom="6dp" />
+    </LinearLayout>
+</ScrollView>

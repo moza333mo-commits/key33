@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'com.linguakey.keyboard'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.linguakey.keyboard"
+        minSdkVersion 24
+        targetSdkVersion 35
+        versionCode 860
+        versionName "8.6.0"
+        ndk {
+            abiFilters "arm64-v8a", "armeabi-v7a", "x86_64"
+        }
+    }
+
+    flavorDimensions "engine"
+    productFlavors {
+        mlkit {
+            dimension "engine"
+        }
+        nomlkit {
+            dimension "engine"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    // Bundled ML Kit Text Recognition (model is embedded directly in APK so sideloaded builds work 100% immediately on first tap)
+    implementation 'com.google.mlkit:text-recognition:16.0.1'
+    mlkitImplementation 'com.google.mlkit:translate:17.0.3'
+}

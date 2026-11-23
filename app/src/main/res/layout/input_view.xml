@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2026 LinguaKey Smart Keyboard
+** Licensed under the Apache License, Version 2.0
+*/
+-->
+
+<com.linguakey.keyboard.latin.InputView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="?attr/inputViewStyle">
+    <LinearLayout
+        android:id="@+id/keyboard_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
+
+        <!-- Clipboard Suggestion Bar (Hidden by default) -->
+        <LinearLayout
+            android:id="@+id/clipboard_suggestion_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="#00000000"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <TextView
+                android:id="@+id/clipboard_suggestion_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="270dp"
+                android:textSize="11.5sp"
+                android:textStyle="bold"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/clipboard_suggestion_close_btn"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="6dp"
+                android:gravity="center"
+                android:text="✕"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#E8EAED"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="إغلاق اقتراح الحافظة" />
+        </LinearLayout>
+
+        <!-- Personal Shortcuts Suggestion Strip (Hidden by default, shown only on exact trigger match) -->
+        <HorizontalScrollView
+            android:id="@+id/lk_shortcut_suggestion_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:scrollbars="none"
+            android:background="#000000"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <LinearLayout
+                android:id="@+id/lk_shortcut_chips_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical" />
+        </HorizontalScrollView>
+
+        <!--
+          Top Bar Directly Above Number Row (Matching image_1b3505.png Default Look):
+          - Replaced the top Gear icon with the new Message Translation Icon (@drawable/ic_msg_translate)
+          - Center: Borderless Original Source Text Area (android:background="@null", invisible when OFF)
+          - Other side: Live Typing Translation Toggle Icon (@drawable/ic_translate)
+        -->
+        <LinearLayout
+            android:id="@+id/linguakey_live_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#000000"
+            android:paddingTop="2dp"
+            android:paddingBottom="1dp">
+
+            <LinearLayout
+                android:id="@+id/lk_clean_header_strip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="34dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp">
+
+                <!-- NEW: Message Translation Icon (Replaced the old top Gear icon!) -->
+                <ImageView
+                    android:id="@+id/lk_msg_translate_mode_btn"
+                    android:layout_width="36dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_msg_translate"
+                    android:scaleType="centerInside"
+                    android:padding="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="ترجمة الشاشة الفورية بضغطة واحدة" />
+
+                <!-- CENTER: Quick Tools Strip (visible when Live Translation is OFF) + Borderless Source Text Area (visible when ON) -->
+                <FrameLayout
+                    android:id="@+id/lk_center_bar_slot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:layout_weight="1"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp">
+
+                    <LinearLayout
+                        android:id="@+id/lk_quick_tools_strip"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/lk_quick_clipboard_btn"
+                            android:layout_width="36dp"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/sym_keyboard_paste"
+                            android:scaleType="centerInside"
+                            android:padding="6dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:contentDescription="الحافظة" />
+
+                        <ImageView
+                            android:id="@+id/lk_quick_emoji_btn"
+                            android:layout_width="36dp"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/sym_keyboard_emoji"
+                            android:scaleType="centerInside"
+                            android:padding="6dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:contentDescription="الإيموجي" />
+
+                        <ImageView
+                            android:id="@+id/lk_quick_last_photo_btn"
+                            android:layout_width="36dp"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/ic_quick_photo"
+                            android:scaleType="centerInside"
+                            android:padding="6dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:contentDescription="إرسال آخر صورة ملتقطة" />
+
+                        <ImageView
+                            android:id="@+id/lk_quick_settings_btn"
+                            android:layout_width="36dp"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/sym_keyboard_settings"
+                            android:scaleType="centerInside"
+                            android:padding="6dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:contentDescription="الأدوات والإعدادات" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/lk_source_buffer_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="32dp"
+                        android:background="@null"
+                        android:text=""
+                        android:hint=""
+                        android:textColor="#FFFFFF"
+                        android:textColorHighlight="#4D0D6EFD"
+                        android:textSize="13.5sp"
+                        android:lineSpacingExtra="1dp"
+                        android:gravity="center_vertical"
+                        android:textDirection="anyRtl"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
+                        android:maxLines="3"
+                        android:scrollbars="vertical"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:importantForAutofill="no"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <!-- Subtle in-flight translation spinner -->
+                <ProgressBar
+                    android:id="@+id/lk_live_progress"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_marginEnd="6dp"
+                    android:visibility="gone" />
+
+                <!-- Live Typing Translation Toggle Button (A文) -->
+                <ImageView
+                    android:id="@+id/lk_translate_toggle_btn"
+                    android:layout_width="36dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_translate"
+                    android:scaleType="centerInside"
+                    android:padding="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="تفعيل أو إيقاف ترجمة الكتابة" />
+            </LinearLayout>
+
+            <!-- Collapsible Arabic Settings & Languages Drawer (Accessible via long-press on top icon or comma key) -->
+            <LinearLayout
+                android:id="@+id/lk_tools_drawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:scrollbars="none"
+                    android:layout_marginBottom="6dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/lk_source_lang_chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="AR"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                        <TextView
+                            android:id="@+id/lk_swap_direction_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="⇄"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:paddingStart="6dp"
+                            android:paddingEnd="6dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:contentDescription="عكس اتجاه الترجمة" />
+
+                        <TextView
+                            android:id="@+id/lk_target_lang_chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="EN"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:layout_marginEnd="6dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                        <TextView
+                            android:id="@+id/lk_polish_chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="✨ تحسين الصياغة"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:layout_marginEnd="6dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                        <TextView
+                            android:id="@+id/lk_undo_chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="مسح النص ✕"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:visibility="gone"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <HorizontalScrollView
+                    android:id="@+id/lk_alternatives_scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:layout_marginBottom="6dp"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/lk_alternatives_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical" />
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:id="@+id/utility_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp">
+                    
+                    <ImageView
+                        android:id="@+id/tb_keys_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_keyboard"
+                        android:padding="7dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:contentDescription="إظهار المفاتيح" />
+
+                    <ImageView
+                        android:id="@+id/tb_clipboard_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/sym_keyboard_paste"
+                        android:padding="7dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:contentDescription="الحافظة" />
+
+                    <ImageView
+                        android:id="@+id/tb_ai_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_ai_copilot"
+                        android:padding="7dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:contentDescription="المساعد الذكي" />
+
+                    <ImageView
+                        android:id="@+id/tb_emoji_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/sym_keyboard_emoji"
+                        android:padding="7dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:contentDescription="الإيموجي" />
+
+                    <ImageView
+                        android:id="@+id/tb_gif_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_gif"
+                        android:padding="7dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:contentDescription="صور GIF" />
+
+                    <ImageView
+                        android:id="@+id/tb_translate_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_translate"
+                        android:padding="7dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:contentDescription="لوحة الترجمة" />
+
+                    <ImageView
+                        android:id="@+id/tb_settings_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/sym_keyboard_settings"
+                        android:padding="7dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:contentDescription="إعدادات الكيبورد" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        
+        <ViewStub
+            android:id="@+id/clipboard_panel_stub"
+            android:inflatedId="@+id/clipboard_panel"
+            android:layout="@layout/panel_clipboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ViewStub
+            android:id="@+id/ai_panel_stub"
+            android:inflatedId="@+id/ai_panel"
+            android:layout="@layout/panel_ai_copilot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ViewStub
+            android:id="@+id/emoji_panel_stub"
+            android:inflatedId="@+id/emoji_panel"
+            android:layout="@layout/panel_emoji"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ViewStub
+            android:id="@+id/gif_panel_stub"
+            android:inflatedId="@+id/gif_panel"
+            android:layout="@layout/panel_gif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ViewStub
+            android:id="@+id/translate_panel_stub"
+            android:inflatedId="@+id/translate_panel"
+            android:layout="@layout/panel_translate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ViewStub
+            android:id="@+id/ai_settings_panel_stub"
+            android:inflatedId="@+id/ai_settings_panel"
+            android:layout="@layout/panel_ai_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Main Keyboard View -->
+        <com.linguakey.keyboard.keyboard.MainKeyboardView
+            android:id="@+id/keyboard_view"
+            android:layoutDirection="ltr"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</com.linguakey.keyboard.latin.InputView>

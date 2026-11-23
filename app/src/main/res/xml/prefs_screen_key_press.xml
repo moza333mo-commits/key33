@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:latin="http://schemas.android.com/apk/res-auto"
+    android:title="@string/settings_screen_key_press">
+    <SwitchPreference
+        android:key="vibrate_on"
+        android:title="@string/vibrate_on_keypress"
+        android:defaultValue="@bool/config_default_vibration_enabled"
+        android:persistent="true" />
+    <SwitchPreference
+        android:key="sound_on"
+        android:title="@string/sound_on_keypress"
+        android:defaultValue="@bool/config_default_sound_enabled"
+        android:persistent="true" />
+    <com.linguakey.keyboard.latin.settings.SeekBarDialogPreference
+        android:key="pref_keypress_sound_volume"
+        android:title="@string/prefs_keypress_sound_volume_settings"
+        android:dependency="sound_on"
+        latin:maxValue="100" />
+    <ListPreference
+        android:key="pref_keypress_soundpack"
+        android:title="حزمة أصوات نقرات الأزرار"
+        android:entries="@array/soundpack_names"
+        android:entryValues="@array/soundpack_values"
+        android:defaultValue="default"
+        android:dependency="sound_on"
+        android:persistent="true" />
+    <Preference
+        android:key="pref_download_soundpacks"
+        android:title="تنزيل حزم أصوات ميكانيكية إضافية"
+        android:summary="تصفح وحمّل أصوات المفاتيح الميكانيكية الحقيقية بضغطة واحدة"
+        android:dependency="sound_on">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.linguakey.keyboard"
+            android:targetClass="com.linguakey.keyboard.latin.settings.SoundpackDownloadActivity" />
+    </Preference>
+    <SwitchPreference
+        android:key="popup_on"
+        android:title="@string/popup_on_keypress"
+        android:defaultValue="@bool/config_default_key_preview_popup"
+        android:persistent="true" />
+    <com.linguakey.keyboard.latin.settings.SeekBarDialogPreference
+        android:key="pref_key_longpress_timeout"
+        android:title="@string/prefs_key_longpress_timeout_settings"
+        latin:minValue="@integer/config_min_longpress_timeout"
+        latin:maxValue="@integer/config_max_longpress_timeout"
+        latin:stepValue="@integer/config_longpress_timeout_step" />
+</PreferenceScreen>

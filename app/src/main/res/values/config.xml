@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Configuration values for Portrait (Exact Google Gboard Proportions & Compact Popup Preview). -->
+<resources>
+    <bool name="config_use_fullscreen_mode">false</bool>
+
+    <dimen name="config_key_hysteresis_distance">5.0dp</dimen>
+
+    <!-- Compact, ergonomic keyboard height -->
+    <dimen name="config_default_keyboard_height">208.0dp</dimen>
+    <fraction name="config_max_keyboard_height">44%p</fraction>
+    <fraction name="config_min_keyboard_height">-46.0%p</fraction>
+
+    <!-- Sleek, compact Gboard-style long-press MoreKeys popup dimensions -->
+    <dimen name="config_more_keys_keyboard_key_height">42.0dp</dimen>
+    <dimen name="config_more_keys_keyboard_slide_allowance">50.4dp</dimen>
+    <dimen name="config_more_keys_keyboard_key_horizontal_padding">7dp</dimen>
+
+    <fraction name="config_keyboard_top_padding">1.200%p</fraction>
+    <fraction name="config_keyboard_bottom_padding">1.500%p</fraction>
+    <fraction name="config_keyboard_left_padding">1.100%p</fraction>
+    <fraction name="config_keyboard_right_padding">1.100%p</fraction>
+    <fraction name="config_key_vertical_gap">5.800%p</fraction>
+    <fraction name="config_key_horizontal_gap">1.550%p</fraction>
+    <dimen name="config_more_keys_keyboard_vertical_correction">-21.0dp</dimen>
+
+    <!-- Compact, non-intrusive Gboard Key Press Preview Popup -->
+    <dimen name="config_key_preview_offset_lxx">6dp</dimen>
+    <dimen name="config_key_preview_height_lxx">52dp</dimen>
+    <dimen name="config_key_preview_width_lxx">35dp</dimen>
+    <fraction name="config_key_preview_text_ratio">54%</fraction>
+
+    <!-- Crisp Gboard key typography ratios -->
+    <fraction name="config_key_letter_ratio_lxx">50%</fraction>
+    <fraction name="config_key_large_letter_ratio_lxx">80%</fraction>
+    <fraction name="config_key_label_ratio_lxx">33%</fraction>
+    <fraction name="config_key_hint_letter_ratio_lxx">19%</fraction>
+    <fraction name="config_key_hint_label_ratio_lxx">23%</fraction>
+    <fraction name="config_key_shifted_letter_hint_ratio_lxx">26%</fraction>
+    <fraction name="config_language_on_spacebar_text_ratio">33.0%</fraction>
+    <dimen name="config_key_hint_letter_padding">4dp</dimen>
+    <dimen name="config_key_shifted_letter_hint_padding">3dp</dimen>
+
+    <dimen name="config_more_keys_keyboard_top_padding">2dp</dimen>
+    <dimen name="config_more_keys_keyboard_bottom_padding">2dp</dimen>
+    <dimen name="config_more_keys_keyboard_left_padding">2dp</dimen>
+    <dimen name="config_more_keys_keyboard_right_padding">2dp</dimen>
+
+    <!-- For 5-row keyboard (with Number Row enabled) -->
+    <fraction name="config_key_vertical_gap_5row">2.650%p</fraction>
+    <fraction name="config_key_bonus_height_5row">5.000%p</fraction>
+    <fraction name="config_key_letter_ratio_5row">50%</fraction>
+    <fraction name="config_key_shifted_letter_hint_ratio_5row">30%</fraction>
+</resources>

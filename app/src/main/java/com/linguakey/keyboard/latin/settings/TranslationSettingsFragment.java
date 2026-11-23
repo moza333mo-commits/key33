@@ -1,0 +1,188 @@
+package com.linguakey.keyboard.latin.settings;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.preference.EditTextPreference;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.widget.Toast;
+
+import com.linguakey.keyboard.R;
+import com.linguakey.keyboard.latin.LinguaKeyMessageTouchService;
+import com.linguakey.keyboard.latin.LinguaKeyScreenTranslateService;
+import com.linguakey.keyboard.latin.MlKitClearCallback;
+import com.linguakey.keyboard.latin.MlKitTranslatorWrapper;
+
+/**
+ * "Translation Settings" sub screen.
+ */
+public final class TranslationSettingsFragment extends SubScreenFragment {
+
+    private static final String KEY_CLEAR_MODELS = "pref_translate_clear_models";
+    private static final String KEY_CUSTOM_PROMPT = "pref_translate_custom_prompt";
+    private static final String KEY_AI_PROVIDER = "pref_translate_ai_provider";
+    private static final String KEY_TRANSLATE_MODE = "pref_translate_mode";
+    private static final String KEY_SHORTCUT_TOGGLE = "pref_utility_show_translate";
+
+    private final Handler mHandler = new Handler(Looper.getMainLooper());
+
+    @Override
+    public void onCreate(final Bundle icicle) {
+        super.onCreate(icicle);
+        addPreferencesFromResource(R.xml.prefs_screen_translation);
+
+        if (!MlKitTranslatorWrapper.isSupported()) {
+            final Preference mlkitCategory = findPreference("cat_translate_mlkit");
+            if (mlkitCategory != null) {
+                getPreferenceScreen().removePreference(mlkitCategory);
+            }
+            final ListPreference modePref = (ListPreference) findPreference(KEY_TRANSLATE_MODE);
+            if (modePref != null) {
+                final CharSequence[] entries = modePref.getEntries();
+                final CharSequence[] entryValues = modePref.getEntryValues();
+                if (entries != null && entryValues != null) {
+                    final java.util.List<CharSequence> newEntries = new java.util.ArrayList<>();
+                    final java.util.List<CharSequence> newValues = new java.util.ArrayList<>();
+                    for (int i = 0; i < entryValues.length; i++) {
+                        if (!"mlkit".equals(entryValues[i].toString())) {
+                            newEntries.add(entries[i]);
+                            newValues.add(entryValues[i]);
+                        }
+                    }
+                    modePref.setEntries(newEntries.toArray(new CharSequence[0]));
+                    modePref.setEntryValues(newValues.toArray(new CharSequence[0]));
+                    if ("mlkit".equals(modePref.getValue())) {
+                        modePref.setValue("scraping");
+                    }
+                }
+            }
+        } else {
+            final Preference clearPref = findPreference(KEY_CLEAR_MODELS);
+            if (clearPref != null) {
+                clearPref.setOnPreferenceClickListener(pref -> {
+                    clearDownloadedMlKitModels();
+                    return true;
+                });
+            }
+        }
+
+        final Preference resetScreenPref = findPreference("pref_linguakey_reset_screen_capture");
+        if (resetScreenPref != null) {
+            resetScreenPref.setOnPreferenceClickListener(pref -> {
+                if (getActivity() != null) {
+                    com.linguakey.keyboard.latin.LinguaKeyScreenCaptureManager
+                            .getInstance(getActivity().getApplicationContext())
+                            .resetSessionCompletely();
+                    Toast.makeText(getActivity(), "تم إعادة ضبط جلسة ترجمة الشاشة بنجاح ✓", Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            });
+        }
+
+        updateAllSummaries();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateAllSummaries();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(final SharedPreferences prefs, final String key) {
+        updateAllSummaries();
+    }
+
+    private void updateAllSummaries() {
+        updateListSummary("pref_linguakey_live_source_lang");
+        updateListSummary("pref_linguakey_live_target_lang");
+        updateListSummary("pref_linguakey_live_debounce_ms");
+        updateListSummary("pref_linguakey_source_clear_timeout_ms");
+
+        final Preference resetScreenPref = findPreference("pref_linguakey_reset_screen_capture");
+        if (resetScreenPref != null && getActivity() != null) {
+            boolean active = com.linguakey.keyboard.latin.LinguaKeyScreenCaptureManager
+                    .getInstance(getActivity().getApplicationContext()).hasActiveProjection();
+            resetScreenPref.setSummary(active
+                    ? "جلسة ترجمة الشاشة نشطة وجاهزة ✓ — اضغط لإعادة الضبط عند الحاجة"
+                    : "جاهزة للعمل بضغطة واحدة من شريط الكيبورد — اضغط لإعادة تهيئة الإذن عند الحاجة");
+        }
+
+        updateEditTextSummary("pref_linguakey_backend_proxy_url", "اتصال مباشر بسحابة Gemini (بدون خادم وسيط)");
+        updateListSummary(KEY_TRANSLATE_MODE);
+        updateListSummary(KEY_AI_PROVIDER);
+        updateEditTextSummary(KEY_CUSTOM_PROMPT, "قالب التوجيه الافتراضي");
+    }
+
+    private void updateListSummary(String key) {
+        final ListPreference pref = (ListPreference) findPreference(key);
+        if (pref != null && pref.getEntry() != null) {
+            pref.setSummary(pref.getEntry());
+        }
+    }
+
+    private void updateEditTextSummary(String key, String defaultDisplay) {
+        final EditTextPreference pref = (EditTextPreference) findPreference(key);
+        if (pref == null) return;
+        String value = pref.getText();
+        if (value == null || value.trim().isEmpty()) {
+            pref.setSummary(defaultDisplay);
+        } else {
+            if (value.length() > 60) {
+                pref.setSummary(value.substring(0, 57) + "...");
+            } else {
+                pref.setSummary(value);
+            }
+        }
+    }
+
+    private void clearDownloadedMlKitModels() {
+        if (getActivity() == null) return;
+        
+        final Preference clearPref = findPreference(KEY_CLEAR_MODELS);
+        if (clearPref != null) {
+            clearPref.setSummary("جارٍ تفريغ النماذج المحلية...");
+            clearPref.setEnabled(false);
+        }
+
+        MlKitTranslatorWrapper.clearDownloadedModels(new MlKitClearCallback() {
+            @Override
+            public void onSuccess(final int count) {
+                mHandler.post(() -> {
+                    if (!isAdded() || getActivity() == null) return;
+                    Toast.makeText(getActivity(), "تم تفريغ النماذج المحلية بنجاح ✓", Toast.LENGTH_SHORT).show();
+                    if (clearPref != null) {
+                        clearPref.setSummary("حذف نماذج الترجمة المحمّلة محلياً لتوفير المساحة");
+                        clearPref.setEnabled(true);
+                    }
+                });
+            }
+
+            @Override
+            public void onNoModels() {
+                mHandler.post(() -> {
+                    if (!isAdded() || getActivity() == null) return;
+                    Toast.makeText(getActivity(), "لا توجد نماذج محلية محفوظة", Toast.LENGTH_SHORT).show();
+                    if (clearPref != null) {
+                        clearPref.setSummary("حذف نماذج الترجمة المحمّلة محلياً لتوفير المساحة");
+                        clearPref.setEnabled(true);
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(final String errorMessage) {
+                mHandler.post(() -> {
+                    if (!isAdded() || getActivity() == null) return;
+                    Toast.makeText(getActivity(), "تعذر تفريغ النماذج: " + errorMessage, Toast.LENGTH_SHORT).show();
+                    if (clearPref != null) {
+                        clearPref.setSummary("حذف نماذج الترجمة المحمّلة محلياً لتوفير المساحة");
+                        clearPref.setEnabled(true);
+                    }
+                });
+            }
+        });
+    }
+}

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- خيارات الاهتزاز والصوت عند الضغط -->
+    <string name="vibrate_on_keypress">الاهتزاز عند ضغط الأزرار</string>
+    <string name="sound_on_keypress">صوت النقرات عند ضغط الأزرار</string>
+    <string name="popup_on_keypress">إظهار معاينة الحرف عند الضغط</string>
+
+    <!-- عناوين شاشات الإعدادات باللغة العربية -->
+    <string name="settings_screen_preferences">التفضيلات العامة وخيارات الكتابة</string>
+    <string name="settings_screen_key_press">الاهتزاز وأصوات الأزرار</string>
+    <string name="settings_screen_appearance">المظهر والألوان والارتفاع</string>
+    <string name="settings_screen_theme">سمة لوحة المفاتيح</string>
+
+    <!-- وحدات القياس -->
+    <string name="abbreviation_unit_milliseconds"><xliff:g id="MILLISECONDS">%s</xliff:g> مللي ثانية</string>
+    <string name="settings_system_default">الافتراضي للنظام</string>
+
+    <!-- خيارات الأحرف الكبيرة واللغات -->
+    <string name="auto_cap">الأحرف الكبيرة التلقائية</string>
+    <string name="auto_cap_summary">تكبير الحرف الأول من كل جملة في اللغات اللاتينية</string>
+
+    <string name="select_language">لغات لوحة المفاتيح</string>
+    <string name="select_language_description" translatable="false">en_US:qwerty;en_US:qwertz;de:qwertz</string>
+    <string name="pref_keyboard_color_description" translatable="false">#ECEFF1</string>
+
+    <string name="locale_name_en_GB">الإنجليزية (المملكة المتحدة)</string>
+    <string name="locale_name_en_US">الإنجليزية (الولايات المتحدة)</string>
+    <string name="locale_name_es_US">الإسبانية</string>
+    <string name="locale_name_hi_ZZ">الهندية اللاتينية</string>
+    <string name="locale_name_sr_ZZ">الصربية (لاتينية)</string>
+    <string name="subtype_generic_layout"><xliff:g id="LANGUAGE_NAME" example="English (US)">%1$s</xliff:g> (<xliff:g id="LAYOUT" example="QWERTY">%2$s</xliff:g>)</string>
+    <string name="subtype_traditional">تقليدي</string>
+    <string name="subtype_compact">مدمج</string>
+    <string name="subtype_bds">BDS</string>
+    <string name="subtype_q">Q</string>
+    <string name="subtype_f">F</string>
+    <string name="subtype_akkhor">Akkhor</string>
+    <string name="subtype_ergol">Ergo-L</string>
+    <string name="subtype_hcesar">HCESAR</string>
+
+    <string name="keyboard_theme_dark_border" translatable="false">الوضع الداكن الفخم (مع حدود للأزرار)</string>
+    <string name="keyboard_theme_light_border" translatable="false">الوضع الفاتح (مع حدود للأزرار)</string>
+    <string name="keyboard_theme_dark" translatable="false">الوضع الداكن الانسيابي (بدون حدود)</string>
+    <string name="keyboard_theme_light" translatable="false">الوضع الفاتح الانسيابي (بدون حدود)</string>
+    <string name="keyboard_theme_system" translatable="false">تلقائي حسب سمة الهاتف (بدون حدود)</string>
+    <string name="keyboard_theme_system_border" translatable="false">تلقائي حسب سمة الهاتف (مع حدود)</string>
+
+    <string name="add">إضافة</string>
+    <string name="remove">إزالة</string>
+
+    <string name="prefs_keypress_sound_volume_settings">مستوى صوت نقرات الأزرار</string>
+    <string name="prefs_key_longpress_timeout_settings">مهلة الضغط المطوّل على الزر</string>
+    <string name="button_default">الافتراضي</string>
+
+    <string translatable="false" name="abbreviation_unit_percent"><xliff:g id="PERCENTS">%s</xliff:g>%%</string>
+    <string translatable="false" name="abbreviation_unit_dp"><xliff:g id="DENSITY_INDEPENDENT_PIXELS">%d</xliff:g> dp</string>
+
+    <string name="prefs_keyboard_height_settings">ارتفاع لوحة المفاتيح</string>
+    <string name="prefs_bottom_offset_portrait_settings">المسافة السفلية (رفع الكيبورد)</string>
+    <string name="keyboard_color">تخصيص لون خلفية الكيبورد</string>
+    <string name="show_special_chars">إظهار الرموز عند الضغط المطوّل (للغتين العربية والإنجليزية)</string>
+    <string name="show_language_switch_key">إظهار زر تبديل اللغة (🌐)</string>
+    <string name="pref_use_on_screen">إظهار الكيبورد على الشاشة دائماً</string>
+    <string name="pref_use_on_screen_summary">إظهار الكيبورد على الشاشة حتى عند توصيل كيبورد خارجي</string>
+    <string name="pref_enable_ime_switch">التبديل إلى لوحات مفاتيح أخرى بالنظام</string>
+    <string name="show_number_row">إظهار صف الأرقام العلوي (1-0)</string>
+    <string name="space_swipe">تحريك المؤشر بالسحب على المسطرة</string>
+    <string name="delete_swipe">الحذف السريع بالسحب على زر المسح</string>
+    <string name="setup_message">لوحة مفاتيح LinguaKey غير مفعّلة حالياً. اضغط موافق لفتح إعدادات اللغات والإدخال وتفعيل LinguaKey.</string>
+    <string name="user_languages">لغات الكتابة المفعّلة</string>
+    <string name="add_language">إضافة لغة جديدة</string>
+    <string name="remove_language">إزالة اللغة</string>
+    <string name="generic_language_layouts">تخطيطات لوحة مفاتيح <xliff:g id="LANGUAGE_NAME" example="العربية">%s</xliff:g></string>
+    <string name="change_keyboard">تغيير لوحة المفاتيح</string>
+    <string name="privacy_policy">سياسة الخصوصية والأمان</string>
+    <string name="license">ترخيص المصادر المفتوحة</string>
+    <string name="show_emoji_key">إظهار زر الإيموجي</string>
+    <string name="emoji_list">الإيموجي المفضلة المثبتة</string>
+    <string name="emoji_list_summary">قائمة الإيموجي المفضلة مفصولة بفواصل لتظهر في التبويب الأول</string>
+    <string name="utility_toolbar_category">تخصيص قائمة الأدوات والحافظة</string>
+    <string name="pref_utility_button_order_title">ترتيب وإظهار أزرار الأدوات</string>
+    <string name="pref_utility_background_color_title">لون خلفية شريط الأدوات</string>
+    <string name="pref_clip_suggestion_timeout_title">مدة بقاء اقتراح الحافظة</string>
+    <string name="pref_clip_suggestion_timeout_summary">الزمن بالثواني قبل اختفاء شريط النص المنسوخ تلقائياً (الافتراضي: 60 ثانية)</string>
+
+    <!-- النسخ الاحتياطي والاستعادة -->
+    <string name="backup_restore_title">النسخ الاحتياطي واستعادة الإعدادات</string>
+    <string name="export_settings_title">تصدير وحفظ الإعدادات</string>
+    <string name="export_settings_summary">حفظ جميع إعداداتك وتخصيصاتك في ملف JSON على جهازك</string>
+    <string name="import_settings_title">استيراد واستعادة الإعدادات</string>
+    <string name="import_settings_summary">استعادة إعداداتك من ملف JSON محفوظ مسبقاً</string>
+
+    <!-- حول التطبيق -->
+    <string name="about_title">حول تطبيق LinguaKey</string>
+    <string name="about_dialog_title">حول LinguaKey v5.0</string>
+    <string name="about_developer">تطوير وتصميم</string>
+    <string name="about_developer_name">LinguaKey Studio</string>
+    <string name="about_homeland">البلد</string>
+    <string name="about_homeland_value">سوريا 🇸🇾</string>
+    <string name="about_version">رقم الإصدار</string>
+    <string name="about_github">مستودع GitHub</string>
+    <string name="about_telegram">قناة Telegram</string>
+    <string name="about_website">الموقع الرسمي</string>
+    <string name="about_connect_title">تواصل معنا</string>
+    <string name="about_easter_egg_hint">اضغط على البلد أو الإصدار!</string>
+    <string name="about_easter_egg_title">LinguaKey — صُنع بحب وإتقان 🌟</string>
+    <string name="about_easter_egg_message">لوحة مفاتيح ذكية مصممة لتجعل تواصلك بكل لغات العالم سلساً وطبيعياً كأنك تتحدث بلغتك الأم! ✨</string>
+
+    <!-- وصف خدمة ترجمة الرسائل باللمس في إمكانية الوصول -->
+    <string name="accessibility_service_description">تتيح لك هذه الخدمة ترجمة أي رسالة داخل تطبيقات المحادثة (مثل WhatsApp وHelloTalk وTelegram) بمجرد الضغط على زر «ترجمة رسالة» في الكيبورد ثم لمس الرسالة مباشرة، مع الحفاظ التام على خصوصيتك وعدم حفظ أو مشاركة أي بيانات.</string>
+</resources>

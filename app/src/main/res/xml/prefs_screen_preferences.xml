@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings_screen_preferences">
+
+    <PreferenceCategory android:title="سلوك الكتابة وصف الأرقام">
+        <SwitchPreference
+            android:key="auto_cap"
+            android:title="@string/auto_cap"
+            android:summary="@string/auto_cap_summary"
+            android:defaultValue="true"
+            android:persistent="true" />
+        <SwitchPreference
+            android:key="pref_show_number_row"
+            android:title="@string/show_number_row"
+            android:defaultValue="true" />
+        <SwitchPreference
+            android:key="pref_show_special_chars"
+            android:title="@string/show_special_chars"
+            android:summary="إظهار الرموز وعلامات الترقيم عند الضغط المطوّل على الأحرف (مثل الضغط المطوّل على حرف م لإظهار الفاصلة ،)"
+            android:defaultValue="true" />
+        <SwitchPreference
+            android:key="pref_show_language_switch_key"
+            android:title="@string/show_language_switch_key"
+            android:defaultValue="true" />
+        <SwitchPreference
+            android:key="pref_enable_ime_switch"
+            android:title="@string/pref_enable_ime_switch"
+            android:dependency="pref_show_language_switch_key"
+            android:defaultValue="false" />
+        <SwitchPreference
+            android:key="pref_use_on_screen"
+            android:title="@string/pref_use_on_screen"
+            android:summary="@string/pref_use_on_screen_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="إيماءات السحب الذكية">
+        <SwitchPreference
+            android:key="pref_space_swipe"
+            android:title="@string/space_swipe"
+            android:defaultValue="true" />
+        <SwitchPreference
+            android:key="pref_delete_swipe"
+            android:title="@string/delete_swipe"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/utility_toolbar_category">
+        <com.linguakey.keyboard.latin.settings.DragReorderDialogPreference
+            android:key="pref_utility_button_order"
+            android:title="@string/pref_utility_button_order_title"
+            android:defaultValue="keys,clipboard,ai,emoji,settings" />
+        <EditTextPreference
+            android:key="pref_emoji_list"
+            android:title="@string/emoji_list"
+            android:summary="@string/emoji_list_summary"
+            android:defaultValue="❤️,😂,🔥,👍,😊,✨,🙏,🎉,😍,🥺,👏,💯,🤣,😎,🥳,🥰,🤔,💀,🙌,😭,🚀" />
+        <com.linguakey.keyboard.latin.settings.ColorDialogPreference
+            android:key="pref_utility_background_color"
+            android:title="@string/pref_utility_background_color_title" />
+        <EditTextPreference
+            android:key="pref_clip_suggestion_timeout"
+            android:title="@string/pref_clip_suggestion_timeout_title"
+            android:summary="@string/pref_clip_suggestion_timeout_summary"
+            android:defaultValue="60"
+            android:inputType="number" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="إعدادات البحث عن الصور المتحركة (GIF)">
+        <SwitchPreference
+            android:key="pref_utility_show_gif"
+            android:title="إظهار زر البحث عن صور GIF في قائمة الأدوات"
+            android:defaultValue="true" />
+        <ListPreference
+            android:key="pref_gif_provider"
+            android:title="مزود خدمة صور GIF"
+            android:entries="@array/gif_provider_names"
+            android:entryValues="@array/gif_provider_values"
+            android:defaultValue="tenor" />
+        <EditTextPreference
+            android:key="pref_giphy_api_key"
+            android:title="مفتاح GIPHY API المخصص (اختياري)"
+            android:summary="أدخل مفتاح GIPHY الخاص بك عند الرغبة"
+            android:defaultValue="" />
+        <EditTextPreference
+            android:key="pref_klipy_api_key"
+            android:title="مفتاح Klipy API المخصص (اختياري)"
+            android:summary="أدخل مفتاح Klipy الخاص بك عند الرغبة"
+            android:defaultValue="" />
+        <SwitchPreference
+            android:key="pref_gif_high_quality"
+            android:title="معاينة صور GIF بدقة عالية"
+            android:summary="عرض الصور المتحركة بجودة أعلى داخل الشبكة"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

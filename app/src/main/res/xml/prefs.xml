@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="english_ime_settings"
+    android:title="إعدادات LinguaKey">
+
+    <PreferenceCategory
+        android:title="الترجمة الذكية والذكاء الاصطناعي"
+        android:key="category_intelligence">
+        <PreferenceScreen
+            android:fragment="com.linguakey.keyboard.latin.settings.TranslationSettingsFragment"
+            android:title="الترجمة التلقائية وترجمة الرسائل باللمس"
+            android:summary="إعدادات الترجمة الفورية أثناء الكتابة وترجمة رسائل المحادثة باللمس"
+            android:icon="@drawable/ic_translate"
+            android:key="screen_translation" />
+        <PreferenceScreen
+            android:fragment="com.linguakey.keyboard.latin.settings.AiSettingsFragment"
+            android:title="ربط محرك Gemini API والذكاء الاصطناعي"
+            android:summary="إدخال مفتاح Gemini API المشفر (AES-256)، اختيار النموذج، واختبار الاتصال المباشر"
+            android:icon="@drawable/ic_ai_copilot"
+            android:key="screen_ai" />
+    </PreferenceCategory>
+
+        <PreferenceCategory
+        android:title="القواميس والاختصارات"
+        android:key="category_personal_shortcuts">
+        <Preference
+            android:key="smart_strategies_manager"
+            android:title="الاستراتيجيات الذكية (JSON)"
+            android:summary="استيراد استراتيجيات الفواصل وعلامات الاستفهام الذكية وأساليب الكتابة"
+            android:icon="@drawable/ic_ai_copilot" />
+        <Preference
+            android:key="offline_translation_libraries"
+            android:title="مكتبات الترجمة بدون إنترنت (JSON)"
+            android:summary="استيراد مكتبة أو عدة مكتبات لنفس اللغة للعمل بدون نت"
+            android:icon="@drawable/ic_translate" />
+        <Preference
+            android:key="personal_dictionaries_shortcuts"
+            android:title="القواميس والاختصارات الشخصية"
+            android:summary="إضافة اختصارات للجمل الطويلة، تنظيم المجموعات، واستيراد/تصدير قواميس JSON"
+            android:icon="@drawable/ic_settings_preferences" />
+    </PreferenceCategory>
+
+<PreferenceCategory
+        android:title="المظهر وتنسيق الأزرار"
+        android:key="category_design">
+        <PreferenceScreen
+            android:fragment="com.linguakey.keyboard.latin.settings.AppearanceSettingsFragment"
+            android:title="@string/settings_screen_appearance"
+            android:summary="السمات الداكنة الفخمة، ارتفاع الكيبورد، والألوان المخصصة"
+            android:icon="@drawable/ic_settings_palette"
+            android:key="screen_appearance" />
+        <PreferenceScreen
+            android:fragment="com.linguakey.keyboard.latin.settings.PersonalizationSettingsFragment"
+            android:title="تخصيص شكل وحجم وأبعاد الأزرار"
+            android:summary="استدارة حواف الأزرار، أبعاد المفاتيح، المسافات بين الأزرار، والخلفيات"
+            android:icon="@drawable/ic_settings_brush"
+            android:key="screen_personalization" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="الكتابة واللغات والأصوات"
+        android:key="category_general">
+        <PreferenceScreen
+            android:fragment="com.linguakey.keyboard.latin.settings.PreferencesSettingsFragment"
+            android:title="@string/settings_screen_preferences"
+            android:summary="صف الأرقام العلوي، اللغات، الإيموجي، السحب، وترتيب الأدوات"
+            android:icon="@drawable/ic_settings_preferences"
+            android:key="screen_preferences" />
+        <PreferenceScreen
+            android:fragment="com.linguakey.keyboard.latin.settings.KeyPressSettingsFragment"
+            android:title="@string/settings_screen_key_press"
+            android:summary="الاهتزاز اللمسي، أصوات الأزرار الميكانيكية، ومعاينة الأحرف"
+            android:icon="@drawable/ic_settings_touch"
+            android:key="screen_key_press" />
+        <Preference
+            android:key="soundpack_store"
+            android:title="متجر الأصوات الميكانيكية"
+            android:summary="تنزيل وتفعيل أصوات الكيبورد الميكانيكية الاحترافية"
+            android:icon="@drawable/ic_settings_sound" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/backup_restore_title"
+        android:key="backup_restore_category">
+        <Preference
+            android:key="export_settings"
+            android:title="@string/export_settings_title"
+            android:summary="@string/export_settings_summary"
+            android:icon="@drawable/ic_settings_backup" />
+        <Preference
+            android:key="import_settings"
+            android:title="@string/import_settings_title"
+            android:summary="@string/import_settings_summary"
+            android:icon="@drawable/ic_settings_backup" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="حول LinguaKey والخصوصية"
+        android:key="category_about">
+        <Preference
+            android:title="@string/about_title"
+            android:summary="معلومات الإصدار، الهوية البصرية، وحقوق المصادر المفتوحة"
+            android:icon="@drawable/ic_settings_info"
+            android:key="about" />
+        <Preference
+            android:title="@string/privacy_policy"
+            android:summary="حماية مفتاح API بتشفير AES-256 وعدم جمع أي بيانات شخصية"
+            android:icon="@drawable/ic_settings_security"
+            android:key="privacy_policy" />
+        <Preference
+            android:title="@string/license"
+            android:summary="رخصة المصدر المفتوح Apache License 2.0"
+            android:icon="@drawable/ic_settings_policy"
+            android:key="license" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

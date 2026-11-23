@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:latin="http://schemas.android.com/apk/res-auto"
+    android:key="screen_personalization"
+    android:title="تخصيص شكل وحجم وأبعاد الأزرار">
+
+    <PreferenceCategory android:title="تخصيص شكل حواف الأزرار">
+        <ListPreference
+            android:key="pref_key_shape"
+            android:title="الشكل الهندسي للأزرار"
+            android:summary="اختر درجة استدارة أو شكل مفاتيح الكيبورد"
+            android:entries="@array/key_shape_entries"
+            android:entryValues="@array/key_shape_values"
+            android:defaultValue="default" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="خيارات حجم وأبعاد الأزرار">
+        <ListPreference
+            android:key="pref_key_size_mode"
+            android:title="نمط تحجيم الأزرار"
+            android:summary="اختر التحجيم المتناسق الموحد أو ضبط العرض والارتفاع بشكل منفصل"
+            android:entries="@array/key_size_mode_entries"
+            android:entryValues="@array/key_size_mode_values"
+            android:defaultValue="uniform" />
+        <com.linguakey.keyboard.latin.settings.SeekBarDialogPreference
+            android:key="pref_key_size_scale"
+            android:title="نسبة حجم الأزرار العام"
+            latin:minValue="70"
+            latin:maxValue="130"
+            latin:stepValue="5" />
+        <com.linguakey.keyboard.latin.settings.SeekBarDialogPreference
+            android:key="pref_key_width_scale"
+            android:title="نسبة عرض الأزرار"
+            latin:minValue="70"
+            latin:maxValue="130"
+            latin:stepValue="5" />
+        <com.linguakey.keyboard.latin.settings.SeekBarDialogPreference
+            android:key="pref_key_height_scale"
+            android:title="نسبة ارتفاع الأزرار"
+            latin:minValue="70"
+            latin:maxValue="130"
+            latin:stepValue="5" />
+        <Preference
+            android:key="pref_reset_key_size"
+            android:title="استعادة الحجم الافتراضي للأزرار"
+            android:summary="إعادة ضبط أبعاد وحجم الأزرار إلى النسبة المثالية 100%" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="المسافات الفاصلة بين الأزرار">
+        <com.linguakey.keyboard.latin.settings.SeekBarDialogPreference
+            android:key="pref_key_gap_x"
+            android:title="المسافة الأفقية بين الأزرار"
+            latin:minValue="0"
+            latin:maxValue="10"
+            latin:stepValue="1" />
+        <com.linguakey.keyboard.latin.settings.SeekBarDialogPreference
+            android:key="pref_key_gap_y"
+            android:title="المسافة العمودية بين الصفوف"
+            latin:minValue="0"
+            latin:maxValue="10"
+            latin:stepValue="1" />
+        <Preference
+            android:key="pref_reset_key_gap"
+            android:title="استعادة المسافات الافتراضية"
+            android:summary="إعادة ضبط المسافة الأفقية والعمودية إلى القياس المثالي" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="صورة مخصصة لخلفية الأزرار">
+        <Preference
+            android:key="pref_select_key_bg_image"
+            android:title="اختيار صورة لخلفية الأزرار"
+            android:summary="اختر صورة صغيرة لتطبيقها كخلفية لمفاتيح الكيبورد" />
+        <Preference
+            android:key="pref_clear_key_bg_image"
+            android:title="إزالة صورة خلفية الأزرار"
+            android:summary="العودة إلى اللون القياسي للأزرار" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="صورة مخصصة لخلفية الكيبورد الكاملة">
+        <Preference
+            android:key="pref_select_kbd_bg_image"
+            android:title="اختيار صورة لخلفية الكيبورد"
+            android:summary="اختر صورة من معرض هاتفك لتظهر خلف لوحة المفاتيح" />
+        <ListPreference
+            android:key="pref_kbd_bg_image_style"
+            android:title="طريقة عرض صورة الخلفية"
+            android:summary="اختر التمديد أو القص المتناسق لملء مساحة الكيبورد"
+            android:entries="@array/kbd_bg_style_entries"
+            android:entryValues="@array/kbd_bg_style_values"
+            android:defaultValue="stretch" />
+        <Preference
+            android:key="pref_clear_kbd_bg_image"
+            android:title="إزالة صورة خلفية الكيبورد"
+            android:summary="العودة إلى الخلفية الداكنة القياسية للكيبورد" />
+    </PreferenceCategory>
+</PreferenceScreen>

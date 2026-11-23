@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="english_ime_name" translatable="false">LinguaKey</string>
+    <string name="english_ime_settings" translatable="false">إعدادات LinguaKey الذكية</string>
+    <string name="privacy_policy_url" translatable="false">https://github.com/MohamadOday/Iris/blob/main/LICENSE</string>
+    <string name="license_url" translatable="false">https://www.apache.org/licenses/LICENSE-2.0</string>
+</resources>
